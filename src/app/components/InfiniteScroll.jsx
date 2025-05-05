@@ -8,6 +8,7 @@ export default function InfiniteScroll({ categories }) {
   const loader = useRef(null);
   const [hasMore, setHasMore] = useState(true);
 
+
   const fetchPosts = useCallback(async () => {
     try {
       const res = await api.get(`/posts?_fields=date,slug,title,excerpt,categories,featured_media,tag&page=${page}`);
