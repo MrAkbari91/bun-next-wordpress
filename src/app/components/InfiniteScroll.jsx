@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import BlogCard from './BlogCard';
-import api from '../lib/api';
+import { useEffect, useRef, useState, useCallback } from "react";
+import BlogCard from "./BlogCard";
+import api from "../lib/api";
 
 export default function InfiniteScroll({ categories }) {
   const [posts, setPosts] = useState([]);
@@ -8,15 +8,16 @@ export default function InfiniteScroll({ categories }) {
   const loader = useRef(null);
   const [hasMore, setHasMore] = useState(true);
 
-
   const fetchPosts = useCallback(async () => {
     try {
-      const res = await api.get(`/posts?_fields=date,slug,title,excerpt,categories,featured_media,tag&page=${page}`);
+      const res = await api.get(
+        `/posts?_fields=date,slug,title,excerpt,categories,featured_media,tag&page=${page}`,
+      );
       if (res.data.length === 0) {
         setHasMore(false);
         return;
       }
-      setPosts(prev => [...prev, ...res.data]);
+      setPosts((prev) => [...prev, ...res.data]);
     } catch (err) {
       setHasMore(false);
     }
@@ -27,9 +28,9 @@ export default function InfiniteScroll({ categories }) {
   }, [fetchPosts]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
+    const observer = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && hasMore) {
-        setPage(prev => prev + 1);
+        setPage((prev) => prev + 1);
       }
     });
     if (loader.current) observer.observe(loader.current);
@@ -39,11 +40,11 @@ export default function InfiniteScroll({ categories }) {
   return (
     <>
       <div className="flex flex-wrap">
-        {posts.map(post => (
+        {posts.map((post) => (
           <BlogCard key={post.slug} post={post} categories={categories} />
         ))}
       </div>
-      <div ref={loader} className="h-10 mt-4" />
+      <div ref={loader} className="mt-4 h-10" />
     </>
   );
 }

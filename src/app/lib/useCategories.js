@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import api from './api';
+import { useEffect, useState } from "react";
+import api from "./api";
 
 export default function useCategories() {
   const [categories, setCategories] = useState({});
@@ -10,14 +10,14 @@ export default function useCategories() {
   useEffect(() => {
     async function fetchCategories() {
       try {
-        const res = await api.get('/categories?_fields=id,name,slug');
-        console.log('Fetched categories:', res.data);
+        const res = await api.get("/categories?_fields=id,name,slug");
+        console.log("Fetched categories:", res.data);
         const idToName = {};
         const nameToIdMap = {};
         const slugToIdMap = {};
         const idToSlugMap = {};
 
-        res.data.forEach(cat => {
+        res.data.forEach((cat) => {
           idToName[cat.id] = cat.name;
           nameToIdMap[cat.name.toLowerCase()] = cat.id;
           slugToIdMap[cat.slug] = cat.id;
@@ -29,7 +29,7 @@ export default function useCategories() {
         setSlugToId(slugToIdMap);
         setIdToSlug(idToSlugMap);
       } catch (err) {
-        console.error('Error fetching categories:', err);
+        console.error("Error fetching categories:", err);
       }
     }
 

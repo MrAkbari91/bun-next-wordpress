@@ -1,0 +1,32 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "theme"
+  ],
+  "tailwindCSS.experimental.classRegex": [
+    [
+      "twMerge\\(([^)]*)\\)",
+      "[\"'`]([^\"'`]*).*?[\"'`]"
+    ],
+    [
+      "createTheme(?:<\\w+>)?\\s*\\(([^)]*)\\)",
+      "{?\\s?[\\w].*:\\s*?[\"'`]([^\"'`]*).*?,?\\s?}?"
+    ]
+  ]
+}

@@ -1,0 +1,15 @@
+article {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  background-color: #ffffff;
+}
+
+#article-hstick-inner p{
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: #dddcdc;
+}
