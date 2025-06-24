@@ -1,4 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WanderCity Blog
+
+## About the Project
+
+WanderCity Blog is a modern blog application built with Next.js that specifically integrates with the WordPress REST API. It fetches posts and categories directly from a WordPress backend and displays them in a clean, responsive interface. The blog features infinite scrolling to load more posts seamlessly as the user scrolls down. It includes reusable components for displaying blog cards, images, headers, and footers, and uses Flowbite React and react-icons for UI elements.
+
+## Installation
+
+To get started with the project locally, follow these steps:
+
+1. Clone the repository:
+```bash
+git clone [your-repo-url]
+```
+
+2. Navigate to the project directory:
+```bash
+cd your-project-directory
+```
+
+3. Install dependencies using your preferred package manager:
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+4. Create a `.env.local` file in the root directory and add your WordPress API URL:
+```
+NEXT_PUBLIC_API_URL=https://your-wordpress-site.com/wp-json/wp/v2
+```
+
+5. Run the development server:
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+
+## What I Have Done
+
+- Integrated the application with the WordPress REST API to fetch and display blog posts and categories.
+- Implemented fetching and displaying blog posts with images, categories, titles, excerpts, and publication dates from WordPress.
+- Created reusable components such as BlogCard for post previews and ImageById for fetching and displaying WordPress media by ID.
+- Developed a custom hook `useCategories` to fetch and manage WordPress blog categories.
+- Added infinite scrolling functionality to load more posts dynamically as the user scrolls.
+- Built a responsive header with navigation links and a footer with social media links using Flowbite React and react-icons.
+- Ensured the application is responsive and optimized for different screen sizes.
+- Configured API client using Axios with environment-based base URL for flexibility.
 
 ## Getting Started
 
